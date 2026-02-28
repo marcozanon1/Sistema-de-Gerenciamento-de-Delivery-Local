@@ -4,9 +4,19 @@ public class Restaurante {
     private String categoria;
 
     public Restaurante(String nome, String endereco, String categoria) {
-        this.nome = nome;
-        this.endereco = endereco;
-        this.categoria = categoria;
+        if(nome == null || nome.isBlank()){
+            throw new IllegalArgumentException("O nome não pode estar vazio");
+        }
+        if(endereco == null || endereco.isBlank()){
+            throw new IllegalArgumentException("O endereço não pode estar vazio");
+        }
+
+        if(categoria == null || categoria.isBlank()){
+            throw new IllegalArgumentException("A categoria não pode estar vazia");
+        }
+            this.nome = nome;
+            this.endereco = endereco;
+            this.categoria = categoria;
     }
 
     public String getNome() {
@@ -21,24 +31,5 @@ public class Restaurante {
         return categoria;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
-    @Override
-    public String toString() {
-        return "Restaurante{" +
-                "nome='" + nome + '\'' +
-                ", endereco='" + endereco + '\'' +
-                ", categoria='" + categoria + '\'' +
-                '}';
-    }
 }

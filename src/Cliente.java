@@ -3,8 +3,14 @@ public class Cliente {
     private String telefone;
 
     public Cliente(String nome, String telefone) {
-        this.nome = nome;
-        this.telefone = telefone;
+        if(nome == null || nome.isBlank()){
+            throw new IllegalArgumentException("Nome não pode estar vazio");
+        }
+        if(telefone == null || telefone.isBlank()){
+            throw new IllegalArgumentException("Telefone não pode estar vazio");
+        }
+            this.nome = nome;
+            this.telefone = telefone;
     }
 
     public String getNome() {
@@ -12,7 +18,10 @@ public class Cliente {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if(nome == null || nome.isBlank()){
+            System.out.println("Nome não pode estar em branco");
+        } else {
+        this.nome = nome;}
     }
 
     public String getTelefone() {
@@ -20,14 +29,11 @@ public class Cliente {
     }
 
     public void setTelefone(String telefone) {
-        this.telefone = telefone;
+        if(telefone == null || telefone.isBlank()){
+            System.out.println("Telefone não pode estar em branco");
+        } else {
+        this.telefone = telefone;}
     }
 
-    @Override
-    public String toString() {
-        return "Cliente{" +
-                "nome='" + nome + '\'' +
-                ", telefone='" + telefone + '\'' +
-                '}';
-    }
+
 }
