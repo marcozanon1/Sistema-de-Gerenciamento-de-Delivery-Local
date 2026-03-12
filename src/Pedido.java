@@ -40,19 +40,20 @@ public class Pedido {
         return valorTotal;
     }
 
-    public void setCliente(Cliente cliente) {
-        if(cliente == null){
-            System.out.println("Cliente não pode estar vazio");
-        } else {
-        this.cliente = cliente;}
+    public void setRestaurante(Restaurante restaurante) {
+        if (restaurante == null){
+            throw new IllegalArgumentException("Restaurante não pode ser vazio");
+        }
+        this.restaurante = restaurante;
     }
 
-    public void setRestaurante(Restaurante restaurante) {
-        if(restaurante == null){
-            System.out.println("Restaurante não pode estar vazio");
-        } else {
-        this.restaurante = restaurante;}
+    public void setCliente(Cliente cliente) {
+        if (cliente == null) {
+            throw new IllegalArgumentException("Cliente não pode ser vazio");
+        }
+        this.cliente = cliente;
     }
+
 
     @Override
     public String toString() {

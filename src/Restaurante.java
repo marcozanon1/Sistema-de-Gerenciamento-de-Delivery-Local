@@ -31,5 +31,24 @@ public class Restaurante {
         return categoria;
     }
 
+    public void setNome(String nome) {
+        if (nome == null || nome.isBlank()) {
+            throw new IllegalArgumentException("Nome não pode ser vazio");
+        }
+        this.nome = nome;
+    }
 
+    public void setEndereco(String endereco) {
+        if (endereco == null || endereco.isBlank()) {
+            throw new IllegalArgumentException("Endereço não pode ser vazio");
+        }
+        this.endereco = endereco;
+    }
+
+    public void setCategoria(String categoria) {
+        if (categoria == null || categoria.isBlank()) {
+            throw new IllegalArgumentException("Categoria não pode ser vazia");
+        }
+        this.categoria = categoria;
+    }
 }
