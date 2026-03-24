@@ -1,4 +1,6 @@
-public class Entregador extends Usuario{
+package model;
+
+public class Entregador extends Usuario {
     public Entregador(String nome, String telefone, String email) {
         super(nome, telefone, email);
     }

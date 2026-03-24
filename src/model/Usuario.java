@@ -1,7 +1,10 @@
+package model;
+
 public abstract class Usuario {
     protected String nome;
     protected String email;
     protected String telefone;
+
 
     public Usuario(String nome, String telefone, String email) {
         if(nome == null || nome.isBlank()){
