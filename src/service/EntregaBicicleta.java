@@ -8,6 +8,6 @@ public class EntregaBicicleta implements Entregavel {
 
     @Override
     public void realizarEntrega(Pedido pedido) {
-        System.out.println("Entrega feita de bicicleta. O planeta agredece =D");
+        System.out.println("Obrigado "+pedido.getCliente()+"! Entrega feita de bicicleta. O planeta agredece =D");
     }
 }

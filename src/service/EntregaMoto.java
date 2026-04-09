@@ -10,6 +10,6 @@ public class EntregaMoto implements Entregavel {
 
     @Override
     public void realizarEntrega(Pedido pedido) {
-        System.out.println("Entrega feita de moto. Rápido e sua comida chega quentinha =D" );
+        System.out.println("Obrigado, " + pedido.getCliente()+"! Entrega feita de moto. Rápido e sua comida chega quentinha =D" );
     }
 }

@@ -8,17 +8,20 @@ public class Pedido {
     private static int contadorId = 0;
 
     private int id;
-    private Cliente cliente;
+    private Usuario cliente;
     private Restaurante restaurante;
     private double valorTotal;
     private Entregavel estrategiaEntrega;
 
-    public Pedido(Cliente cliente, Restaurante restaurante, double valorTotal){
+    public Pedido(Usuario cliente, Restaurante restaurante, double valorTotal, Entregavel estrategiaEntrega){
         if(cliente == null){
-            throw new IllegalArgumentException("model.Cliente não pode estar vazio");
+            throw new IllegalArgumentException("Cliente não pode estar vazio");
         }
         if(restaurante == null){
-            throw new IllegalArgumentException("model.Restaurante não pode estar vazio");
+            throw new IllegalArgumentException("Restaurante não pode estar vazio");
+        }
+        if(estrategiaEntrega == null){
+            throw new IllegalArgumentException("A estratégia de entrega não pode estar vazio");
         }
 
         if(valorTotal < 0){
@@ -29,13 +32,14 @@ public class Pedido {
             this.restaurante = restaurante;
             this.cliente = cliente;
             this.valorTotal = valorTotal;
+            this.estrategiaEntrega = estrategiaEntrega;
     }
 
     public int getId() {
         return id;
     }
 
-    public Cliente getCliente() {
+    public Usuario getCliente() {
         return cliente;
     }
 
@@ -67,7 +71,6 @@ public class Pedido {
 
     public void processarEntrega() {
         if (estrategiaEntrega != null) {
-            // Executa a ação via referência da interface (Polimorfismo)
             estrategiaEntrega.realizarEntrega(this);
         } else {
             System.out.println("Estratégia de entrega não definida para o pedido #" + id);
@@ -80,5 +83,6 @@ public class Pedido {
                 + " | Cliente: " + cliente.getNome()
                 + " | Restaurante: " + restaurante.getNome()
                 + " | Valor total: $" + valorTotal;
+
     }
 }
